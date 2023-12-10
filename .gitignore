@@ -9,6 +9,9 @@
 # testing
 /coverage
 
+# ace editor
+/src/ace
+
 # next.js
 /.next/
 /out/

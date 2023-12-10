@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link' // link to next problem
 import Head from 'next/head';
 import Layout from '@/components/Layout';
+import Editor from '@/components/Editor';
+import Problem1 from './problem1';
 
-const Problem = () => {
-    // put Ace.js object here
-    return (
-    <h1>ACE OBJECT HERE</h1>
-    )
-}
+// const Problem = () => {
+//     // Ace.js editor object here
+//     return (
+//         <>
+//     <h1>EDITOR HERE</h1>
+//     <Editor />
+//     </>
+//     )
+// }
 
 
 const Problems = () => {
     return (
         <>
         <Head>
-                <title>Luke Haskell | Projects Page</title>
+                <title>Coding Quiz | Problem Page</title>
                 <meta name='description' content='projects page' />
             </Head>
             <main className='w-full mb-16 flex flex-col items-center justify-center dark:text-light'>
@@ -23,19 +28,28 @@ const Problems = () => {
 
                     <div className='grid grid-cols-12 gap-24 gap-y-32 '>
                         <div className='col-span-12 '>
-                            <Problem />
+                            <Link href='/problem1'>Problem 1
+                            <h5>A simple "hello world exercise</h5></Link>
                         </div>
-                        <div className='col-span-12'>
-                            <Problem />
+                        <div className='col-span-12 '>
+                            <Link href='/problem1'>Problem 2
+                            <h5>A simple list problem</h5></Link>
                         </div>
-                        <div className='col-span-12'>
-                            <Problem />
+                        <div className='col-span-12 '>
+                            <Link href='/problem1'>Problem 3
+                            <h5>A simple string problem</h5></Link>
                         </div>
-                        <div className='col-span-12'>
-                            <Problem />
+                        <div className='col-span-12 '>
+                            <Link href='/problem1'>Problem 4
+                            <h5>A for-loop over a list problem</h5></Link>
                         </div>
-                        <div className='col-span-12'>
-                            <Problem />
+                        <div className='col-span-12 '>
+                            <Link href='/problem1'>Problem 5
+                            <h5>A for-loop over a string problem</h5></Link>
+                        </div>
+                        <div className='col-span-12 '>
+                            <Link href='/problem1'>Problem 6
+                            <h5>A matrix problem</h5></Link>
                         </div>
 
                     </div>
