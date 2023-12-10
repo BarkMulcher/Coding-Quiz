@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
       <main className='flex items-center text-dark w-full min-h-screen dark:text-light'>
       <Layout>
-        <div className="flex items-center justify-between w-full">
+        <div className="flex items-center justify-between w-full p-56">
             Coding Quiz
         </div>
       </Layout>

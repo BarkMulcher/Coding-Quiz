@@ -23,12 +23,13 @@ const CustomLink = ({href, title, className=''}) => {
 
 const Navbar = () => {
     return (
-        <header>
+        <header className='w-full px-32 py-8 font-medium flex items-center justify-between
+        dark:text-light'>
             <nav>
-                <CustomLink href='/help' title='Help' classname='' />
-                <CustomLink href='/' title='Coding Quiz' classname='' />
-                <CustomLink href='/about' title='About' classname='' />
-                <CustomLink href='/problems' title='Full List' classname='' />
+                <CustomLink href='/help' title='Help' className='mr-4' />
+                <CustomLink href='/' title='Coding Quiz' className='mx-36' />
+                <CustomLink href='/about' title='About' className='mx-4' />
+                <CustomLink href='/problems' title='Full List' className='ml-4' />
             </nav>
         </header>
     );
