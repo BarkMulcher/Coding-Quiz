@@ -6,14 +6,28 @@ import 'ace-builds/src-noconflict/theme-monokai'
 import 'ace-builds/src-noconflict/ext-language_tools'
 
 const Editor = ({ dataState, text }) => {
-    const [defaultText, setDefaultText] = useState("FartBoobs"); //IDK --
+    const [defaultText, setDefaultText] = useState("CXXXXC"); //IDK --
 
     return (
         <>
-        <AceEditor mode="python" defaultValue={text} theme='monokai' onChange={dataState} placeholder='Placeholder Text' show>
-            {/* need editor to display problem function */}
-            editor.setValue("new text")
-            <textarea name="" id="" cols="30" rows="10" wrap='off' autoCorrect='none' autoCapitalize='none' spellCheck='false' text='test text'></textarea>
+        {/* need editor to display problem function */}
+        <AceEditor
+            mode="python"
+            defaultValue={text}
+            theme='monokai'
+            onChange={dataState}
+            placeholder='Placeholder Text'
+            showGutter={true}
+            highlightActiveLine={true}
+            setOptions={{
+                enableBasicAutocompletion: false,
+                enableLiveAutocompletion: false,
+                enableSnippets: false,
+                showLineNumbers: true,
+                tabSize: 2,
+            }}
+            >
+
         </AceEditor>
         </>
     );
