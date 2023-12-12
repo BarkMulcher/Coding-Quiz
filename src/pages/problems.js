@@ -1,22 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link' // link to next problem
 import Head from 'next/head';
 import Layout from '@/components/Layout';
 import Editor from '@/components/Editor';
-import Problem1 from './problem1';
+import Problem1 from './prompts/[id]';
 
-// const Problem = () => {
-//     // Ace.js editor object here
+const baseUrl = `http://localhost:8000`
+
+// const ProblemSet = () => {
+
 //     return (
 //         <>
-//     <h1>EDITOR HERE</h1>
-//     <Editor />
-//     </>
+//         </>
 //     )
 // }
 
 
 const Problems = () => {
+    const [problems, setProblems] = useState([])
+
+    useEffect(() => {
+        const fetchProblemData = async () => {
+            const problemsUrl = `${baseUrl}/api/prompts`
+            const response = await fetch(problemsUrl)
+            if (response.ok) {
+                const data = await response.json()
+                setProblems(data)
+            }
+        }
+        fetchProblemData()
+
+    }, []);
+
+
     return (
         <>
         <Head>
@@ -27,49 +43,19 @@ const Problems = () => {
                 <Layout className='pt-16'>
 
                     <div className='grid grid-cols-12 gap-24 gap-y-32 '>
-                        <div className='col-span-12 '>
-                            <Link href='/problem1'>Problem 1
-                            <h5>A simple "hello world exercise</h5></Link>
+                        {problems.map((problem, index) => (
+                            <div key={index} className='col-span-12 '>
+                            <Link href={`/prompts/${problem.id}`}>
+                                <h5>{problem.title || 'PROBLEM TITLE'}</h5>
+                            </Link>
                         </div>
-                        <div className='col-span-12 '>
-                            <Link href='/problem1'>Problem 2
-                            <h5>A simple list problem</h5></Link>
-                        </div>
-                        <div className='col-span-12 '>
-                            <Link href='/problem1'>Problem 3
-                            <h5>A simple string problem</h5></Link>
-                        </div>
-                        <div className='col-span-12 '>
-                            <Link href='/problem1'>Problem 4
-                            <h5>A for-loop over a list problem</h5></Link>
-                        </div>
-                        <div className='col-span-12 '>
-                            <Link href='/problem1'>Problem 5
-                            <h5>A for-loop over a string problem</h5></Link>
-                        </div>
-                        <div className='col-span-12 '>
-                            <Link href='/problem1'>Problem 6
-                            <h5>A matrix problem</h5></Link>
-                        </div>
+                        ))}
+
 
                     </div>
                 </Layout>
             </main>
         </>
-        // <div className='grid grid-cols-12 gap-24 gap-y-32'>
-        //     <div className='col-span-12'>
-        //         <Link href='/problem/1'>Problem 1</Link>
-        //         <Link href='/problem/2'>Problem 2</Link>
-        //         <Link href='/problem/3'>Problem 3</Link>
-        //         <Link href='/problem/4'>Problem 4</Link>
-        //         <Link href='/problem/5'>Problem 5</Link>
-        //         <Link href='/problem/6'>Problem 6</Link>
-        //         <Link href='/problem/7'>Problem 7</Link>
-        //         <Link href='/problem/8'>Problem 8</Link>
-        //         <Link href='/problem/9'>Problem 9</Link>
-        //         <Link href='/problem/10'>Problem 10</Link>
-        //     </div>
-        // </div>
     );
 }
 

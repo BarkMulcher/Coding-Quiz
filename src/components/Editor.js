@@ -17,7 +17,7 @@ const Editor = ({ dataState, text }) => {
             defaultValue={text}
             theme='monokai'
             onChange={dataState}
-            placeholder='Placeholder Text'
+            // placeholder='Placeholder Text'
             showGutter={true}
             highlightActiveLine={true}
             setOptions={{
