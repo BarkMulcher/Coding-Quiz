@@ -10,6 +10,7 @@ const Editor = ({ dataState, text }) => {
 
     return (
         <>
+        {/* python ? pythoneditor : javascripteditor */}
         {/* need editor to display problem function */}
         <AceEditor
             mode="python"

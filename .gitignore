@@ -9,6 +9,9 @@
 # testing
 /coverage
 
+# virtual environment
+/.venv
+
 # ace editor
 /src/ace
 
