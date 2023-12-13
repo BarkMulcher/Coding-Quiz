@@ -10,6 +10,7 @@ class Prompt(models.Model):
     title = models.CharField(max_length=150)
     description = models.TextField()
     difficulty = models.CharField(max_length=50)
+    editor_text = models.TextField(null=True)
     # maybe:
     # created_at = models.DateTimeField(auto_now_add=True)
     # updated_at = models.DateTimeField(auto_now_add=True)

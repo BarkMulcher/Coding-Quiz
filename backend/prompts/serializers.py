@@ -11,4 +11,4 @@ class PromptSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Prompt
-        fields = ['id', 'title', 'description', 'difficulty', 'solutions']
+        fields = ['id', 'title', 'description', 'editor_text', 'difficulty', 'solutions']

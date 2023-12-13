@@ -4,9 +4,9 @@ import 'ace-builds/src-noconflict/mode-python'
 import 'ace-builds/src-noconflict/mode-javascript'
 import 'ace-builds/src-noconflict/theme-monokai'
 import 'ace-builds/src-noconflict/ext-language_tools'
+import { edit } from 'ace-builds';
 
-const Editor = ({ dataState, text }) => {
-    const [defaultText, setDefaultText] = useState("CXXXXC"); //IDK --
+const Editor = ({ dataState, editorContent, promptText }) => {
 
     return (
         <>
@@ -14,7 +14,8 @@ const Editor = ({ dataState, text }) => {
         {/* need editor to display problem function */}
         <AceEditor
             mode="python"
-            defaultValue={text}
+            value={promptText}
+            // value={editorContent}
             theme='monokai'
             onChange={dataState}
             // placeholder='Placeholder Text'

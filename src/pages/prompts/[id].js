@@ -5,7 +5,7 @@ import Preview from '../preview';
 const baseUrl = `http://localhost:8000`
 
 const Problem1 = () => {
-    const [prompt, setPrompt] = useState({ title: '', description: '' })
+    const [prompt, setPrompt] = useState({ title: '', description: '', editor_text: '' })
     const [editorContent, setEditorContent] = useState('')
 
     useEffect(() => {
@@ -14,7 +14,8 @@ const Problem1 = () => {
             const response = await fetch(promptUrl)
             if (response.ok) {
                 const data = await response.json()
-                setPrompt({ title: data.title, description: data.description })
+                setPrompt({ title: data.title, description: data.description, editor_text: data.editor_text })
+                setEditorContent(data.editor_text)
             }
         }
 
@@ -28,8 +29,8 @@ const Problem1 = () => {
     return (
         <div>
             <h1>{prompt.title || 'PROBLEM'}</h1>
-            <p>{prompt.description || 'DESCRIPTION'}</p>
-            <Editor promptText={prompt} dataState={handleEditorChange} />
+            <p className='w-full whitespace-pre-wrap text-left'>{prompt.description || 'DESCRIPTION'}</p>
+            <Editor promptText={editorContent} dataState={handleEditorChange} />
         </div>
     );
 }
