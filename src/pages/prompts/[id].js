@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Editor from '../../components/Editor';
 import Preview from '../preview';
 
+// use POST request to submit code, then somehow check it against code solution(s)?
+
 const baseUrl = `http://localhost:8000`
 
 const Problem1 = () => {
